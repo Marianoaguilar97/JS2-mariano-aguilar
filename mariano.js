@@ -1,14 +1,19 @@
-let producto1 = "barra"
-let stock1 = 20
-let precio1 = 100
+function Producto(nombre, stock, precio) {
+    this.nombre = nombre;
+    this.stock = stock;
+    this.precio = precio;
+}
 
-let producto2 = "tabla"
-let stock2 = 10
-let precio2 = 50
+const productoA = new Producto("barra", 20, 100);
+const productoB = new Producto("tabla", 10, 50);
 
-let carrito = prompt("Ingrese la cantidad de items que desea comprar: ") //utilizar parseInt
-//que sucede si el usuario ingresa una letra? o un numero negativo???
-//armar el condicional correspondiente
+const listaProductos = [productoA, productoB]
+
+let carrito = parseInt(prompt("Ingrese la cantidad de items que desea comprar: "))
+while ((isNaN(carrito)) || carrito < 1) {
+    carrito = parseInt(prompt("Debe de ingresar un numero, los numeros menores a 1 o las letras no son validos"))
+}
+
 let precioTotal = 0;
 
 function calculoPrecio(cantidad, precio){
@@ -25,9 +30,23 @@ function carritoCompra(cantidad, stock, precio){
     }
 }
 
+let nombreProducto = []
+
+function nombrarProductos() {
+    for(const producto of listaProductos){
+        nombreProducto.push(producto.nombre)
+    }
+}
+
+nombrarProductos()
+
 for(let i = 0; i < carrito; i ++){
 
-let compra = prompt("Ingrese el producto de lo que desea comprar: \n- barra\n- tabla")
+let compra = prompt("Ingrese el producto de lo que desea comprar: \n " + nombreProducto.join ("\n ")).toLowerCase()
+while (compra == nombreProducto) {
+    compra = prompt("Sus unicas opciones de ingreso son: "  + nombreProducto.join ("\n ")).toLowerCase()
+}
+
 //si el usuario ingresa cualquier cosa en lugar de barra o tabla me pregunta la cantidad y eso está mal
 //let cantidad = prompt ("ingrese la cantidad que desea comprar")
 
