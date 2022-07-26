@@ -60,8 +60,8 @@ for(let i = 0; i < carrito; i ++){
         }
     
     let cantidad = parseInt(prompt("ingrese la cantidad que desea comprar"))
-        while ((isNaN(carrito)) || carrito < 1) {
-        carrito = parseInt(prompt("Debe de ingresar un numero, los numeros menores a 1 o las letras no son validos"))
+        while ((isNaN(cantidad)) || cantidad < 1) {
+        cantidad = parseInt(prompt("Debe de ingresar un numero, los numeros menores a 1 o las letras no son validos"))
         }
     
     if (compra == productoA.nombre){
@@ -73,17 +73,5 @@ for(let i = 0; i < carrito; i ++){
     else{
         alert("no tenemos ese producto")
     }
-}
-
-if (compra == "barra"){ //utilizar los metodos correctos de comparación (toLowerCase por ejemplo)
-    let cantidad = prompt ("ingrese la cantidad que desea comprar")
-    carritoCompra(cantidad, stock1, precio1)
-}
-else if (compra == "tabla") { //utilizar los metodos correctos de comparación (toLowerCase por ejemplo)
-    let cantidad = prompt ("ingrese la cantidad que desea comprar")
-    carritoCompra(cantidad, stock2, precio2)
-}
-else{
-    alert("no tenemos ese producto")
 }
 alert("Este es precio total de su compra $ " + precioTotal)
