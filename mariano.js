@@ -55,8 +55,12 @@ for(let i = 0; i < carrito; i ++){
 
 
     let compra = prompt("Ingrese el producto de lo que desea comprar: \n " + nombreProducto.join ("\n ")).toLowerCase()
+    //aca generas un prompt dinamico    
         while ((compra != productoA.nombre) && (compra != productoB.nombre))  {
-        compra = prompt("Sus unicas opciones de ingreso son: \n"  + nombreProducto.join ("\n ")).toLowerCase()
+            //si tuviera mas productos??? como hago??? tengo que seguir metiendo condiciones a mano en la linea 48???
+            //utiliza los metodos que aprendimos para agregar mas objetos al array
+            //y volver MAS DINAMICO esta iteracion
+            compra = prompt("Sus unicas opciones de ingreso son: \n"  + nombreProducto.join ("\n ")).toLowerCase()
         }
     
     let cantidad = parseInt(prompt("ingrese la cantidad que desea comprar"))
@@ -67,10 +71,10 @@ for(let i = 0; i < carrito; i ++){
     if (compra == productoA.nombre){
         carritoCompra(cantidad, productoA)
     }
-    else if (compra == productoB.nombre) {
-        carritoCompra(cantidad, productoB)
-    }
-    else{
+    else if (compra == productoB.nombre) { //y si tuviera 15 productos mas tengo que agregar 15 condiciones mas?
+        carritoCompra(cantidad, productoB) //o usar un switch?
+    } //LA RESPUESTA ES NO JAJAJAJA 
+    else{ //para no repetir codigo MUY SIMILAR aprendimos algo: USALO PORFA!
         alert("no tenemos ese producto")
     }
 }
